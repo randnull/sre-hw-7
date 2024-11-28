@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sla-prober
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sla-prober
+  template:
+    metadata:
+      labels:
+        app: sla-prober
+    spec:
+      containers:
+      - name: prober
+        image: sla-prober:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 1521

@@ -1,0 +1,7 @@
+global:
+  scape_interval: 15s
+scape_configs:
+- job_names: 'prometheus'
+  scape_interval: 5s
+  static_config: 
+    - targets: ['http://oncall-prober:1238']

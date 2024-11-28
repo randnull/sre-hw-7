@@ -1,0 +1,13 @@
+FROM python:3.10
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install -r requirements.txt
+
+EXPOSE 9081
+
+ENV PYTHONPATH=/app
+
+CMD ["python", "sla-prober.py"]

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oncall-prober
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oncall-prober
+  template:
+    metadata:
+      labels:
+        app: oncall-prober
+    spec:
+      containers:
+      - name: prober
+        image: oncall-prober:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 1238
